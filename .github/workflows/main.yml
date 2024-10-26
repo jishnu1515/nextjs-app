@@ -24,12 +24,6 @@ jobs:
     needs: build
     runs-on: self-hosted
     steps:
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-south-1  # Mumbai region
       - name: Pull image from Docker Hub
         run: docker pull jishnu1515/nextjs-app:latest
       - name: Delete old container
